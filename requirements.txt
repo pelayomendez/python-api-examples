@@ -1,0 +1,5 @@
+# /requirements.txt
+
+requests==2.31.0
+flask==2.2.5
+# other required dependencies
