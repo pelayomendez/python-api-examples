@@ -1,4 +1,4 @@
-# Project Name
+# Python API examples
 
 This is a sample project showcasing the usage of Flask API.
 
