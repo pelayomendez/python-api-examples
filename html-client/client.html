@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PokeMon Search API</title>
+    <!--
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    -->
+    <!-- 
+    <link rel="stylesheet" href="styles.css">
+    -->
+    <!-- 
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: antiquewhite;
+        }
+    </style>
+    -->
+    
+    <script type="text/javascript">
+        
+        function getPokemon(){
+            callPokemonAPI();
+        }
+
+        function callPokemonAPI(){
+            var pokemonInput = document.getElementById("pokemonInput");
+            var pokemonName = pokemonInput.value;
+            var pokemonImage = document.getElementById("pokemonImage");
+            var apiUrl = 'https://pokeapi.co/api/v2/pokemon/' + pokemonName + '/';
+            fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const imageUrl = data.sprites.front_default;
+                pokemonImage.setAttribute("src", imageUrl);
+            }).catch(err => {
+                // Do something for an error here
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Find PokeMon By Name</h1>
+    <p>Search a pokemon by name.</p>
+    
+    <input id="pokemonInput" type="text" value="" style="Width:20%"/> 
+    <button onclick="getPokemon()">Find It!</button>
+    
+    <p>Result:</p>   
+    <img id="pokemonImage" src="" width="200px"/>
+
+</body>
+</html>
